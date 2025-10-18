@@ -3,6 +3,19 @@ import Title from '@/components/Title'
 import NewsTile from '@/components/NewsTile'
 
 const page = () => {
+	const url = 'https://newsapi.org/v2/everything?' +
+		'q=Apple&' +
+		'from=2025-10-18&' +
+		'sortBy=popularity&' +
+		'apiKey=25cfea4be4974cf2abeacabc15e2c110';
+
+	const req = new Request(url);
+
+	fetch(req)
+		.then(function (response) {
+			console.log(response.json());
+		})
+		
 	return (
 		<div
 			className='
