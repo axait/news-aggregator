@@ -10,6 +10,7 @@ const NewsTile = () => {
     h-25
     p-2
     rounded-2xl
+    my-3
     '
     >
       <div
