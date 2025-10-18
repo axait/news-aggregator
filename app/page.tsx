@@ -1,13 +1,19 @@
-"use client";
-
-import React, { use } from 'react'
+import React from 'react'
+import Title from '@/components/Title'
+// import NewsTile from '@/components/NewsTile'
 
 const page = () => {
   return (
 	<div
-	className=''
+	className='
+	bg-gray-500
+	min-h-[90vh]
+	w-[70%] min-w-[550px]
+	mx-auto my-5
+	'
 	>
-	  Hello
+	  <Title/>
+	  {/* <NewsTile /> */}
 	</div>
   )
 }
