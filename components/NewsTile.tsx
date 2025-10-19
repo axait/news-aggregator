@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const NewsTile = ({key, title, description}:{ key:number, title: string, description: string}) => {
+function NewsTile ({key, title, content}:{ key:string, title: string|undefined ,content: string|undefined }) {
   return (
     <div
     key={key}
@@ -21,13 +21,13 @@ const NewsTile = ({key, title, description}:{ key:number, title: string, descrip
         mb-2 ml-1 mt-1
         text-xl
         '
-        >{title}</div>
+        >{title || "No title"}</div>
       <p
         className='
         bg-[#0000002a]
         text-xs ml-2
       '
-      >{description}</p>
+      >{content || "No content"}</p>
 
     </div>
   )
