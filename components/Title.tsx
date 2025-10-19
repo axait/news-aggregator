@@ -35,12 +35,13 @@ const Title = () => {
             h-[99vh]
             -translate-y-[2%]
             flex justify-center items-center flex-col
+
             '
             >
                 <div
                     className='
                     flex items-center justify-center
-                    text-3xl font-mono
+                    text-2xl md:text-3xl font-mono
                     h-[60px]
                     '
                 >
