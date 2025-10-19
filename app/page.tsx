@@ -1,6 +1,6 @@
 import React from 'react'
 import Title from '@/components/Title'
-import NewsTile from '@/components/NewsTile'
+import NewsDisplayer from '@/components/NewsDisplayer'
 
 const page = () => {
 	const url = 'https://newsapi.org/v2/everything?' +
@@ -13,7 +13,8 @@ const page = () => {
 
 	fetch(req)
 		.then(function (response) {
-			console.log(response.json());
+			console.log("response");
+			// console.log(response.json());
 		})
 		
 	return (
@@ -25,7 +26,7 @@ const page = () => {
 		'
 		>
 			<Title />
-			<NewsTile />
+			<NewsDisplayer />
 		</div>
 	)
 }

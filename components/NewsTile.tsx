@@ -7,10 +7,10 @@ const NewsTile = () => {
     <div
     className='
     bg-[#0d0d0d94]
-    h-25
+    min-h-25 h-28
     p-2
     rounded-2xl
-    my-3
+    my-4
     '
     >
       <div
