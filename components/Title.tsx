@@ -1,12 +1,36 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+
 
 const Title = () => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const hasScrolled = useRef<boolean>(false); // Prevent multiple triggers
+
+    useEffect(() => {
+        const handleScroll = () => {
+            console.log(window.scrollY)
+
+
+            if (!hasScrolled.current && window.scrollY > 135) {
+                hasScrolled.current = true;
+
+                // Smoothly scroll to the next section
+                sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <>
             <div
-            className='
+                className='
             h-[99vh]
             -translate-y-[2%]
             flex justify-center items-center flex-col
@@ -31,7 +55,12 @@ const Title = () => {
                 >
                     <FontAwesomeIcon icon={faAngleDown} />
                 </div>
-                
+
+            </div>
+
+            <div
+                ref={sectionRef}
+            >
             </div>
         </>
     )
