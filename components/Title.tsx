@@ -12,7 +12,8 @@ const Title = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY)
+            // was just for debugging scrolling
+            // console.log(window.scrollY)
 
 
             if (!hasScrolled.current && window.scrollY > 135) {

@@ -2,9 +2,10 @@
 
 import React from 'react'
 
-const NewsTile = () => {
+const NewsTile = ({key, title, description}:{ key:number, title: string, description: string}) => {
   return (
     <div
+    key={key}
     className='
     bg-[#0d0d0d94]
     min-h-28
@@ -20,13 +21,13 @@ const NewsTile = () => {
         mb-2 ml-1 mt-1
         text-xl
         '
-        >worlds get change</div>
+        >{title}</div>
       <p
         className='
         bg-[#0000002a]
         text-xs ml-2
       '
-      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium odit sed fuga libero reiciendis, velit at. Eaque, minus sint.Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet .... </p>
+      >{description}</p>
 
     </div>
   )
