@@ -1,6 +1,5 @@
 "use client";
 
-import { title } from 'process';
 import NewsTile from './NewsTile';
 
 import React from 'react'
@@ -34,34 +33,37 @@ async function getNews() {
 const NewsDisplayer = () => {
     const [finalArticles, setFinalArticles] = React.useState([]);
 
-    console.log("-----------------------------------------")
-    getNews().then((articles) => {
-        
-        // setFinalArticles(articles)
-        console.log(articles)
-        console.log("-----------------GetNews------------------------")
-    });
+    React.useEffect(() => {
+        // ✅ only runs once after component mounts
+        async function fetchArticles() {
+            const articles = await getNews();
+            setFinalArticles(articles);
+        }
 
-    // for (const article of articles) {
-    //     console.log(article)
-    // }
+        fetchArticles();
+    }, []);
 
     return (
         <div
             className='
-            min-h-screen
+            min-h-screena
             mt-[10vh]
             '
         >
-            {/* <NewsTile title={"title"} description={"article"} /> */}
+            {/* <NewsTile key={50000} title={"title"} description={"article"} /> */}
 
-            {finalArticles.length === 0 ? (
-                <p className="text-center text-gray-400">Loading news...</p>
-            ) : (
-                finalArticles.map((title, description, index) => (
-                    <NewsTile key={index} title={title} description={description} />
-                ))
-            )}
+            {
+                typeof finalArticles === "undefined" || finalArticles.length === 0 ?
+                    (
+                        <p className="text-center text-gray-400">Loading news...</p>
+                    )
+                    :
+                    (
+                        finalArticles.map((info, index) => (
+                            <NewsTile key={index} title={info.title} description={info.description} />
+                        ))
+                    )
+            }
         </div>
     )
 }

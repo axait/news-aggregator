@@ -16,7 +16,7 @@ const Title = () => {
             // console.log(window.scrollY)
 
 
-            if (!hasScrolled.current && window.scrollY > 135) {
+            if (!hasScrolled.current && window.scrollY > 130) {
                 hasScrolled.current = true;
 
                 // Smoothly scroll to the next section
